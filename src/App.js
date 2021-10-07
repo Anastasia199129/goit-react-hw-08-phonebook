@@ -10,6 +10,7 @@ import HomeViews from './views/homeViews/HomeViews';
 const App = () => {
   return (
     <Container>
+      <h1>dfghjkl</h1>
       <Switch>
         <Route exact path="/">
           <HomeViews />
