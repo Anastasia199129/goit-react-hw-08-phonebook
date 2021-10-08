@@ -6,11 +6,12 @@ import { Switch, Route } from 'react-router';
 import RegisterViews from './views/registerViews/RegisterViews';
 import LoginWiews from './views/loginViews/LoginWiews';
 import HomeViews from './views/homeViews/HomeViews';
+import AppBar from './components/appBar/AppBar';
 
 const App = () => {
   return (
     <Container>
-      <h1>dfghjkl</h1>
+      <AppBar />
       <Switch>
         <Route exact path="/">
           <HomeViews />
