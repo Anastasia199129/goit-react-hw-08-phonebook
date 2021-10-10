@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import authSelectors from '../../../redux/auth/auth-selectors';
 import authOperations from '../../../redux/auth/auth-operations';
 
@@ -13,7 +12,7 @@ export default function UserMenu() {
     <div>
       <img src={avatar} alt="" />
       <span>{`Добро пожвловать ${name}`}</span>
-      <button type="button" onClick={authOperations.logout()}>
+      <button type="button" onClick={() => dispatch(authOperations.logOut())}>
         выйти
       </button>
     </div>
