@@ -4,13 +4,24 @@ import authOperations from './auth-operations';
 const initialState = {
   user: [{ name: '', email: '' }],
   token: null,
-  isLoadingIn: false,
+  isLoggedIn: false,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  extraReducers: { [authOperations.register.fulfilled](state, actions) {} },
+  extraReducers: {
+    [authOperations.register.fulfilled](state, action) {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isLoggedIn = true;
+    },
+    [authOperations.logIn.fulfilled](state, action) {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.isLoggedIn = true;
+    },
+  },
 });
 
 export default authSlice.reducer;

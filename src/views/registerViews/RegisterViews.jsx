@@ -15,13 +15,11 @@ export default function RegisterViews() {
     const { name, value } = e.target;
     switch (name) {
       case 'name':
-        setName(value);
-        break;
+        return setName(value);
       case 'email':
-        setEmail(value);
-        break;
+        return setEmail(value);
       case 'password':
-        setPassword(value);
+        return setPassword(value);
       default:
         return;
     }
@@ -35,7 +33,7 @@ export default function RegisterViews() {
     setPassword('');
   };
   return (
-    <form className={s.formWrapper} onSubmit={handleSubmit}>
+    <Form className={s.formWrapper} onSubmit={handleSubmit}>
       <FloatingLabel className={s.name} controlId="name" label="Name">
         <Form.Control
           value={name}
@@ -67,6 +65,6 @@ export default function RegisterViews() {
       <Button className={s.Button} type="submit" variant="info">
         save
       </Button>
-    </form>
+    </Form>
   );
 }
