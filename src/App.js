@@ -15,7 +15,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(operations.getCurrentUser());
+    dispatch(operations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
