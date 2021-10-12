@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LoginWiews from '../../views/loginViews/LoginWiews';
-import RegisterViews from '../../views/registerViews/RegisterViews';
+// import LoginWiews from '../../views/loginViews/LoginWiews';
+// import RegisterViews from '../../views/registerViews/RegisterViews';
 import AuthNav from './authNav/AuthNav';
 import Navigation from './Navigation/Navigation';
 import UserMenu from './userMenu/UserMenu';

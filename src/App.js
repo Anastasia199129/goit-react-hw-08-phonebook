@@ -7,8 +7,17 @@ import RegisterViews from './views/registerViews/RegisterViews';
 import LoginWiews from './views/loginViews/LoginWiews';
 import HomeViews from './views/homeViews/HomeViews';
 import AppBar from './components/appBar/AppBar';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import operations from './redux/auth/auth-operations';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(operations.getCurrentUser());
+  }, [dispatch]);
+
   return (
     <Container>
       <AppBar />
