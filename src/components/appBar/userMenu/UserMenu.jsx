@@ -7,7 +7,6 @@ import s from './userMenu.module.css';
 export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUserName);
-  const avatar = '';
 
   return (
     <div className={s.wrapper}>

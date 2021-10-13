@@ -7,6 +7,7 @@ import operations from './redux/auth/auth-operations';
 import PrivatRoute from './components/routers/PrivatRoute';
 import PublicRoute from './components/routers/PublicRoute';
 import authSelectors from './redux/auth/auth-selectors.js';
+import s from './App.module.css';
 
 const HomeViews = lazy(() => import('./views/homeViews/HomeViews'));
 const RegisterViews = lazy(() => import('./views/registerViews/RegisterViews'));
@@ -26,7 +27,7 @@ const App = () => {
       <Container>
         <AppBar />
         <Switch>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className={s.loading}>Loading...</div>}>
             <PublicRoute exact path="/">
               <HomeViews />
             </PublicRoute>
