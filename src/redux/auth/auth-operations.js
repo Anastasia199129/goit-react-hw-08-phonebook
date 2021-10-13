@@ -1,5 +1,7 @@
+import React from 'react';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'http://connections-api.herokuapp.com';
 
@@ -18,8 +20,8 @@ const register = createAsyncThunk('auth/register', async (credentials, { rejectW
     token.set(data.token);
     return data;
   } catch (error) {
-    rejectWithValue(error);
-    alert(error);
+    toast('Incorrect input!');
+    return rejectWithValue(error.message);
   }
 });
 
@@ -29,8 +31,8 @@ const logIn = createAsyncThunk('auth/login', async (credentials, { rejectWithVal
     token.set(data.token);
     return data;
   } catch (error) {
-    rejectWithValue(error);
-    alert(error);
+    toast('Incorrect input!');
+    return rejectWithValue(error.message);
   }
 });
 
@@ -40,8 +42,8 @@ const logOut = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) =>
     token.unset();
     return data;
   } catch (error) {
-    rejectWithValue(error);
-    alert(error);
+    toast('Incorrect input!');
+    return rejectWithValue(error.message);
   }
 });
 

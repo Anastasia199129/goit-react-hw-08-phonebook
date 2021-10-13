@@ -1,15 +1,16 @@
 import s from './App.module.css';
-// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import ContactViews from './views/contactsViews/ContactViews';
 import Container from './components/contactList/container/Container.jsx';
 import { Switch, Route } from 'react-router';
-import RegisterViews from './views/registerViews/RegisterViews';
-import LoginWiews from './views/loginViews/LoginWiews';
-import HomeViews from './views/homeViews/HomeViews';
 import AppBar from './components/appBar/AppBar';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import operations from './redux/auth/auth-operations';
+import PrivatRoute from './components/routes/PrivatRoute';
+
+const HomeViews = lazy(() => import('./views/homeViews/HomeViews'));
+const RegisterViews = lazy(() => import('./views/registerViews/RegisterViews'));
+const LoginWiews = lazy(() => import('./views/loginViews/LoginWiews'));
+const ContactViews = lazy(() => import('./views/contactsViews/ContactViews'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,18 +23,15 @@ const App = () => {
     <Container>
       <AppBar />
       <Switch>
-        <Route exact path="/">
-          <HomeViews />
-        </Route>
-        <Route path="/register">
-          <RegisterViews />
-        </Route>
-        <Route path="/login">
-          <LoginWiews />
-        </Route>
-        <Route path="/contacts">
-          <ContactViews />
-        </Route>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Route exact path="/" component={HomeViews}></Route>
+          <Route path="/register" component={RegisterViews}></Route>
+          <Route path="/login" component={LoginWiews}></Route>
+          {/* <Route path="/contacts" component={ContactViews}></Route> */}
+          <PrivatRoute path="/contacts">
+            <ContactViews />
+          </PrivatRoute>
+        </Suspense>
       </Switch>
     </Container>
   );

@@ -5,10 +5,10 @@ import s from './authNav.module.css';
 export default function AuthNav() {
   return (
     <nav className={s.nav}>
-      <NavLink exact to="/register">
+      <NavLink className={s.navLink} activeClassName={s.activeNavLink} exact to="/register">
         Регистрация
       </NavLink>
-      <NavLink exact to="/login">
+      <NavLink className={s.navLink} activeClassName={s.activeNavLink} exact to="/login">
         Логин
       </NavLink>
     </nav>

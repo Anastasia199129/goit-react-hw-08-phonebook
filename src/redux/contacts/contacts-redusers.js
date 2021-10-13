@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import {
   changeFilter,
   addContactRequest,
@@ -18,7 +19,7 @@ const items = createReducer([], {
   [addContactSuccess]: (state, { payload }) => {
     const findName = state.find(({ name }) => name === payload.name);
     if (findName !== undefined) {
-      alert(`${payload.name} already exists`);
+      toast(`${payload.name} already exists`);
       return;
     }
     return [...state, payload];

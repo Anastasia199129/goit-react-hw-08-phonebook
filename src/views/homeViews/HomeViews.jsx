@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function HomeViews() {
-  return <div></div>;
+  return <div> Welcome</div>;
 }

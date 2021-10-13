@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { PersistGate } from 'redux-persist/integration/react';
 import './index.css';
 import App from './App';
@@ -10,6 +13,13 @@ import { store, persistor } from './redux/store';
 
 ReactDOM.render(
   <React.StrictMode>
+    <ToastContainer
+      position="top-center"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+    />
     <Provider store={store}>
       <PersistGate loading={'loading...'} persistor={persistor}>
         <BrowserRouter>

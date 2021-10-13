@@ -36,7 +36,7 @@ const ContactForm = ({ propOnSubmit }) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className={style.form} onSubmit={onSubmit}>
       <label className={style.label}>
         {' '}
         Name
