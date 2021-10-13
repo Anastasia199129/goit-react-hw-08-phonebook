@@ -1,0 +1,11 @@
+.wrapper {
+  margin-top: 100px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 40px;
+  color: rgb(112, 24, 100);
+}
+
+.icon {
+  fill: rgb(112, 24, 100);
+}

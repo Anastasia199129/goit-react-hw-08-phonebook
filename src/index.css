@@ -6,6 +6,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding-top: 20px;
   padding-left: 50px;
+  background-image: url(./images/fone.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {

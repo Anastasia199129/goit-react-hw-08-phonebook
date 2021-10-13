@@ -1,3 +1,9 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navLink {
   text-decoration: none;
   font-size: 20px;

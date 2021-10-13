@@ -10,7 +10,7 @@ export default function UserMenu() {
   const avatar = '';
 
   return (
-    <div>
+    <div className={s.wrapper}>
       <img className={s.avatar} src="img/cat.jpg" alt="cat" />
       <span className={s.text}>{`Добро пожвловать, ${name}`}</span>
       <button className={s.button} type="button" onClick={() => dispatch(authOperations.logOut())}>
