@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import style from './contactForm.module.css';
 import { connect } from 'react-redux';
 import operations from '../../redux/contacts/contacts-operations';
+import selectors from '../../redux/contacts/contacts-selectors';
+import { toast } from 'react-toastify';
 
-const ContactForm = ({ propOnSubmit }) => {
+const ContactForm = ({ propOnSubmit, allContacts }) => {
   const [namePerson, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -26,7 +28,13 @@ const ContactForm = ({ propOnSubmit }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    propOnSubmit({ name: namePerson, number: number });
+    let repideNummer = allContacts.find(contact => {
+      return contact.name.toLowerCase() === namePerson.toLowerCase();
+    });
+
+    !repideNummer
+      ? propOnSubmit({ name: namePerson, number: number })
+      : toast(`contact with name: "${namePerson}" already exists`);
     reset();
   };
 
@@ -78,8 +86,12 @@ ContactForm.propTypes = {
   number: PropTypes.string,
 };
 
+const mapStateToProps = state => ({
+  allContacts: selectors.getContacts(state),
+});
+
 const mapDispatchToProps = dispatch => ({
   propOnSubmit: obj => dispatch(operations.addContacts(obj)),
 });
 
-export default connect(null, mapDispatchToProps)(ContactForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import authSelectors from '../../../redux/auth/auth-selectors';
 import authOperations from '../../../redux/auth/auth-operations';
 import s from './userMenu.module.css';
+import PropTypes from 'prop-types';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
@@ -18,3 +19,8 @@ export default function UserMenu() {
     </div>
   );
 }
+
+UserMenu.propTypes = {
+  dispatch: PropTypes.func,
+  name: PropTypes.string,
+};
