@@ -9,7 +9,7 @@ export default function Navigation() {
         Главная
       </NavLink>
       <NavLink className={s.navLink} activeClassName={s.activeNavLink} exact to="/contacts">
-        Заметки
+        Телефонная книга
       </NavLink>
     </nav>
   );
